@@ -1,0 +1,27 @@
+<!-- https://yourdomain.com/checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paddle Checkout</title>
+  <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+  <script>
+    Paddle.Setup({ vendor: 30781 });
+
+    function openCheckout() {
+      Paddle.Checkout.open({
+        product: "pri_01jt8dw2z95cbmwr9cc309c0zn",
+        successCallback: function(data) {
+          // You can redirect or save data
+          window.location.href = "/thank-you";
+        }
+      });
+    }
+
+    window.onload = openCheckout;
+  </script>
+</head>
+<body>
+  <p>Redirecting to payment...</p>
+</body>
+</html>
